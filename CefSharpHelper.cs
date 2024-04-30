@@ -20,12 +20,9 @@ namespace CefSharpTest
             // 使用CefSharp.OffScreen浏览器
             using (var browser = new ChromiumWebBrowser())
             {
-                //while (browser.IsLoading)
-                //{
-                //    Thread.Sleep(100);
-                //}
+
                 // 加载HTML内容
-                Thread.Sleep(1000);
+                Thread.Sleep(10);
                 browser.LoadHtml(htmlContent);
                 await browser.WaitForInitialLoadAsync();
                 // 配置PDF打印设置
@@ -60,6 +57,10 @@ namespace CefSharpTest
                 //File.Delete(tempPdfPath);
             }
         }
+
+
+        // 使用一个AutoResetEvent来同步加载完成的通知
+        private static AutoResetEvent loadEventWaitHandle = new AutoResetEvent(false);
 
         // 以下是一个示意性的方法，展示如何使用外部进程或服务来打印PDF文件
         private static void PrintPdfToFile(string pdfFilePath)
