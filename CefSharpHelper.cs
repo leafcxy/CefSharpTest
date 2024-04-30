@@ -9,12 +9,6 @@ namespace CefSharpTest
 {
     public static class CefSharpHelper
     {
-        private static ChromiumWebBrowser browser;
-        static CefSharpHelper()
-        {
-            browser = new ChromiumWebBrowser();
-        }
-
         public static async Task GenerateAndPrintPdf(string htmlContent)
         {
             // 确保CefSharp已初始化
@@ -26,13 +20,14 @@ namespace CefSharpTest
             // 使用CefSharp.OffScreen浏览器
             using (var browser = new ChromiumWebBrowser())
             {
+                //while (browser.IsLoading)
+                //{
+                //    Thread.Sleep(100);
+                //}
                 // 加载HTML内容
                 Thread.Sleep(1000);
-                //Task.Delay(1000);
                 browser.LoadHtml(htmlContent);
-                //Thread.Sleep(1000);
                 await browser.WaitForInitialLoadAsync();
-                //Thread.Sleep(1000);
                 // 配置PDF打印设置
                 var pdfSettings = new PdfPrintSettings
                 {
