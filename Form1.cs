@@ -30,7 +30,7 @@ namespace CefSharpTest
             {
                 string htmlContent = @"<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><title>Hello World</title></head><body><h1>Hello World</h1></body></html>";
                 await CefSharpHelper.GenerateAndPrintPdf(htmlContent);
-                MessageBox.Show("PDF生成成功!");
+                //MessageBox.Show("PDF生成成功!");
             }
             catch (Exception ex)
             {
