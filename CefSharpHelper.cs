@@ -22,7 +22,7 @@ namespace CefSharpTest
             {
 
                 // 加载HTML内容
-                Thread.Sleep(10);
+                Thread.Sleep(100);
                 browser.LoadHtml(htmlContent);
                 await browser.WaitForInitialLoadAsync();
                 // 配置PDF打印设置
@@ -32,6 +32,8 @@ namespace CefSharpTest
                     MarginType = CefPdfPrintMarginType.Default, // 或自定义页边距
                     //FooterEnabled = false,
                     //HeaderEnabled = false,
+                    //PageWidth = 64000,
+                    //PageHeight = 32000,
                     HeaderFooterEnabled = false,
                     BackgroundsEnabled = true, // 是否打印背景颜色和图片
                 };
